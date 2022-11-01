@@ -1,6 +1,6 @@
 :root {
-    --main-contrast-color: antiquewhite;
     --main-theme-color: rgba(0, 0, 0, .7);
+    --main-contrast-color: antiquewhite;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -13,18 +13,25 @@
 }
 
 body {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-theme-color);
 }
 
 html, body, #root, .App {
     height: 100%;
 }
 
-.App-header {
+header {
+    flex: 0 1 auto;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 10px;
     background-color: var(--main-contrast-color);
     color: var(--main-theme-color)
+}
+
+main {
+    flex: 1 1 auto;
 }
