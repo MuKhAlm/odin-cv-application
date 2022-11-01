@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css'
+import PersonalInfo from './components/PersonalInfo';
 
 class App extends React.Component {
   render () {
@@ -14,11 +15,6 @@ class App extends React.Component {
           <div className='creation'>
           </div>
         </main>
-        <footer>
-          <a href='https://github.com/MuKhAlt/cv-application.git'>
-            <i className='fa-github fab'></i>
-          </a>
-        </footer>
       </div>
     );
   }

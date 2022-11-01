@@ -13,9 +13,7 @@
 }
 
 body {
-    display: flex;
     position: relative;
-    flex-direction: column;
     background-color: var(--main-theme-color);
 }
 
@@ -24,7 +22,6 @@ html, body, #root, .App {
 }
 
 header {
-    flex: 0 1 auto;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -35,26 +32,5 @@ header {
 
 main {
     flex: 1 1 auto;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--main-contrast-color);
-}
-
-.fa-github {
-    font-size: 30px;
-    transition: transform 0.3s;
-    color: var(--main-theme-color);
-}
-
-.fa-github:hover {
-    transform: rotate(360deg) scale(1.2);
+    margin-bottom: 40px;
 }
