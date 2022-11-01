@@ -14,6 +14,7 @@
 
 body {
     display: flex;
+    position: relative;
     flex-direction: column;
     background-color: var(--main-theme-color);
 }
@@ -34,4 +35,11 @@ header {
 
 main {
     flex: 1 1 auto;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
