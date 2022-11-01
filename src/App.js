@@ -9,7 +9,11 @@ function App() {
         </h1>
       </header>
       <main></main>
-      <footer></footer>
+      <footer>
+        <a href='https://github.com/MuKhAlt/cv-application.git'>
+          <i className='fa-github fab'></i>
+        </a>
+      </footer>
     </div>
   );
 }
