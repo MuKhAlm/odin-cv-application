@@ -1,10 +1,12 @@
+import './App.css'
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          CV Applicatio
-        </p>
+        <h1>
+          CV Application
+        </h1>
       </header>
     </div>
   );
