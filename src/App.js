@@ -13,6 +13,9 @@ class App extends React.Component {
         <main>
         </main>
         <footer>
+          <a href='https://github.com/MuKhAlt/odin-cv-application.git' target={"_blank"} rel="noreferrer" >
+            <i className='fa-github fab'></i>
+          </a>
         </footer>
       </div>
     );

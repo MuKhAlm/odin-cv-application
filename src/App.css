@@ -43,6 +43,21 @@ main {
 
 footer {
     flex: 0 0 auto;
-    height: 40px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--main-contrast-color);
+}
+
+.fa-github {
+    margin: auto;
+    color: black;
+    font-size: 30px;
+    transition: transform 0.3s;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
 }
