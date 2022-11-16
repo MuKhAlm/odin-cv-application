@@ -21,16 +21,28 @@ html, body, #root, .App {
     height: 100%;
 }
 
+.App {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
 header {
+    flex: 0 0 auto;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 10px;
     background-color: var(--main-contrast-color);
-    color: var(--main-theme-color)
+    color: var(--main-theme-color);
 }
 
 main {
-    flex: 1 1 auto;
-    margin-bottom: 40px;
+    flex: auto;
+}
+
+footer {
+    flex: 0 0 auto;
+    height: 40px;
+    background-color: var(--main-contrast-color);
 }
