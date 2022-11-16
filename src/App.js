@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css'
-import PersonalInfo from './components/PersonalInfo';
 
 class App extends React.Component {
   render () {
@@ -12,9 +11,9 @@ class App extends React.Component {
           </h1>
         </header>
         <main>
-          <div className='creation'>
-          </div>
         </main>
+        <footer>
+        </footer>
       </div>
     );
   }
