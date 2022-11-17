@@ -13,8 +13,10 @@ class App extends React.Component {
           </h1>
         </header>
         <main>
-          <h2>Personal Details</h2>
-          <PersonalDetails></PersonalDetails>
+          <div id='production'>
+            <h2>Personal Details</h2>
+            <PersonalDetails></PersonalDetails>
+          </div>
         </main>
         <footer>
           <a href='https://github.com/MuKhAlt/odin-cv-application.git' target={"_blank"} rel="noreferrer" >
