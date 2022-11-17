@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css'
 
+import PersonalDetails from './components/PersonalDetails';
+
 class App extends React.Component {
   render () {
     return (
@@ -11,6 +13,8 @@ class App extends React.Component {
           </h1>
         </header>
         <main>
+          <h2>Personal Details</h2>
+          <PersonalDetails></PersonalDetails>
         </main>
         <footer>
           <a href='https://github.com/MuKhAlt/odin-cv-application.git' target={"_blank"} rel="noreferrer" >
