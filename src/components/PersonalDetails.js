@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
+import './PersonalDetails.css'
 
 export default class PersonalDetails extends React.Component {
   render() {
     return (
-      <div>
+      <div id='PersonalDetails'>
         <input id="firstNameInput" type={"text"} placeholder={"First Name"}></input>
         <input id="surnameInput" type={"text"} placeholder={"Surname"}></input>
         <input id="emailInput" type={"email"} placeholder={"Email"}></input>
