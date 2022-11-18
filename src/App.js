@@ -45,6 +45,7 @@ export default class App extends React.Component {
         </header>
         <main>
           <div id='production'>
+          <div id='personalDetailsSection'>
             <h2>Personal Details</h2>
             <PersonalDetails 
               firstName={this.state.personalDetails.firstName}
@@ -54,6 +55,7 @@ export default class App extends React.Component {
               description={this.state.personalDetails.description}
               onChange = {this.handlePersonalDetailsChange}
             ></PersonalDetails>
+          </div>
           </div>
         </main>
         <footer>
