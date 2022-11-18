@@ -4,9 +4,8 @@ import './PersonalDetails.css'
 export default class PersonalDetails extends React.Component {
   render() {
     return (
-      <div id='PersonalDetails'>
+      <div className='PersonalDetails'>
         <input 
-          id="firstNameInput"
           name='firstName' 
           type={"text"} 
           placeholder={"First Name"}
@@ -14,7 +13,6 @@ export default class PersonalDetails extends React.Component {
           onChange={this.props.onChange}
         ></input>
         <input 
-          id="surnameInput"
           name='surname'  
           type={"text"} 
           placeholder={"Surname"}
@@ -22,7 +20,6 @@ export default class PersonalDetails extends React.Component {
           onChange={this.props.onChange}
         ></input>
         <input 
-          id="emailInput" 
           name='email' 
           type={"email"}
           placeholder={"Email"}
@@ -30,7 +27,6 @@ export default class PersonalDetails extends React.Component {
           onChange={this.props.onChange}
         ></input>
         <input 
-          id="phoneNumberInput"
           name='phoneNumber' 
           type={"number"} 
           placeholder={"Phone Number"}
@@ -38,7 +34,6 @@ export default class PersonalDetails extends React.Component {
           onChange={this.props.onChange}
         ></input>
         <textarea 
-          id="descriptionInput" 
           name='description'
           placeholder="Description"
           value={this.props.description}
