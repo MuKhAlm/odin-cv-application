@@ -4,6 +4,7 @@ import uniqid from "uniqid";
 
 import PersonalDetails from './components/PersonalDetails';
 import WorkExperience from './components/WorkExperience';
+import Education from './components/Education';
 
 export default class App extends React.Component {
   constructor() {
@@ -26,6 +27,16 @@ export default class App extends React.Component {
           description: '',
           key: uniqid(),
         }),
+      ],
+      educations: [
+        createEducationDetails({
+          organisationName: '',
+          courseName: '',
+          startDate: '',
+          endDate: '',
+          description: '',
+          key: uniqid(),
+        })
       ]
     }
   }
@@ -85,6 +96,11 @@ export default class App extends React.Component {
     }))
   }
 
+  /**
+   * Adds WorkExperience
+   * 
+   * @modifies this.state (this = App)
+   */
   addWorkExperience = () => {
     this.setState((prevState) => ({
       workExperiences: [
@@ -92,6 +108,65 @@ export default class App extends React.Component {
         createWorkExperienceDetails({
           organisationName: '',
           jobTitle: '',
+          startDate: '',
+          endDate: '',
+          description: '',
+          key: uniqid(),
+        })
+      ]
+    }))
+  }
+
+  /**
+  * Handles user input for Education fields,
+  * 
+  * Sets the appropriate Education property to what the user inputted,
+  * 
+  * @param {Object} e Event
+  * @param {Number} listid The unique key of the Education list item
+  * @modifies this.state (this = App)
+  */
+  handleEducationChange = (e, listid) => {
+    let ed = createEducationDetails(...this.state.educations.filter((education) => (education.key === listid)))
+    ed[e.target.name] = e.target.value
+
+    this.setState((prevState) => ({
+      educations: prevState.educations.map((education) => {
+        if (education.key === listid) {
+          return ed
+        } else {
+          return education
+        }
+      })
+    }))
+  }
+
+  /**
+   * Removes an Education,
+   * 
+   * @param {Number} listid The unique key of the Education list item
+   * @modidies this.state (this = App)
+  */
+  removeEducation = (listid) => {
+    this.setState((prevState) => ({
+      educations: prevState.educations.filter((ed) => (
+        ed.key !== listid
+      ))
+    }))
+  }
+
+  /**
+   * Adds WorkExperience
+   * 
+   * @modifies this.state (this = App)
+   */
+   addEducation = () => {
+    this.setState((prevState) => ({
+      educations: [
+        ...prevState.educations,
+        createWorkExperienceDetails({
+          organisationName: '',
+          courseName: '',
           startDate: '',
           endDate: '',
           description: '',
@@ -114,6 +189,19 @@ export default class App extends React.Component {
         listid={we.key}
         key={we.key}
       ></WorkExperience>
+    ))
+    const educations = this.state.educations.map((ed) => (
+      <Education
+        organisationName={ed.organisationName}
+        courseName={ed.courseName}
+        startDate={ed.startDate}
+        endDate={ed.endDate}
+        description={ed.description}
+        onChange={this.handleEducationChange}
+        onRemove={this.removeEducation}
+        listid={ed.key}
+        key={ed.key}
+      ></Education>
     ))
     return (
       <div className="App">
@@ -141,6 +229,13 @@ export default class App extends React.Component {
                 {workExperiences}
               </ul>
               <button onClick={this.addWorkExperience}>Add</button>
+            </div>
+            <div className='productionSection'>
+              <h2>Education</h2>
+              <ul>
+                {educations}
+              </ul>
+              <button onClick={this.addEducation}>Add</button>
             </div>
           </div>
         </main>
@@ -174,7 +269,7 @@ function createPersonalDetails(PD) {
 /**
  * Creates a Work Experience Object and returns it,
  * 
- * @param {Obejct} PD A Personal Details Object.
+ * @param {Obejct} we A Personal Details Object.
  *                    Its structure is {
  *                      organisationName: {String},
  *                      jobTitle: {String},
@@ -184,6 +279,22 @@ function createPersonalDetails(PD) {
  *                    }
  * @returns New Work Experience Object
  */
-function createWorkExperienceDetails(WE) {
-  return Object.assign({}, WE)
+function createWorkExperienceDetails(we) {
+  return Object.assign({}, we)
+}
+/**
+ * Creates an Education Object and returns it,
+ * 
+ * @param {Obejct} we A Personal Details Object.
+ *                    Its structure is {
+ *                      organisationName: {String},
+ *                      cCourseName: {String},
+ *                      startDate: {String},
+ *                      endDate: {String},
+ *                      description: {String}
+ *                    }
+ * @returns New Education Object
+ */
+function createEducationDetails(ed) {
+  return Object.assign({}, ed)
 }

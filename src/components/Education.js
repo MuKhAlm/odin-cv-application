@@ -1,10 +1,11 @@
 import React from 'react';
-import './WorkExperience.css'
 
-export default class WorkExperience extends React.Component {
+import './Education.css'
+
+export default class Education extends React.Component {
   render() {
     return (
-      <li className='WorkExperience'>
+      <li className='Education'>
         <input
           name='organisationName'
           type={"text"} 
@@ -13,10 +14,10 @@ export default class WorkExperience extends React.Component {
           onChange={(e) => {this.props.onChange(e, this.props.listid)}}
         ></input>
         <input
-          name='jobTitle'
+          name='courseName'
           type={"text"} 
-          placeholder={"Job Title"}
-          value={this.props.jobTitle}
+          placeholder={"Course Name"}
+          value={this.props.courseName}
           onChange={(e) => {this.props.onChange(e, this.props.listid)}}
         ></input>
         <input

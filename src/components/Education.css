@@ -1,0 +1,27 @@
+.Education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.Education input, .Education textarea, .Education button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: var(--main-dark-color);
+    color: var(--main-bright-color);
+    border-radius: 1rem;
+}
+
+.Education input, .Education textarea {
+    width: 100%;
+}
+
+.Education textarea {
+    height: 100px;
+}
+
+.Education button {
+    width: 15%;
+}
