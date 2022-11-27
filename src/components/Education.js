@@ -7,17 +7,17 @@ export default class Education extends React.Component {
     return (
       <li className='Education'>
         <input
-          name='organisationName'
-          type={"text"} 
-          placeholder={"Organisation Name"}
-          value={this.props.organisationName}
-          onChange={(e) => {this.props.onChange(e, this.props.listid)}}
-        ></input>
-        <input
           name='courseName'
           type={"text"} 
           placeholder={"Course Name"}
           value={this.props.courseName}
+          onChange={(e) => {this.props.onChange(e, this.props.listid)}}
+        ></input>
+        <input
+          name='organisationName'
+          type={"text"} 
+          placeholder={"Organisation Name"}
+          value={this.props.organisationName}
           onChange={(e) => {this.props.onChange(e, this.props.listid)}}
         ></input>
         <input

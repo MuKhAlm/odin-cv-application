@@ -97,6 +97,43 @@ main>button {
     border-radius: 1rem;
 }
 
+#preview {
+    flex-grow: 1;
+    background-color: var(--main-bright-color);
+    color: var(--main-dark-color);
+    border-radius: 1%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    text-overflow: clip;
+}
+
+#preview div {
+    margin: 10px;
+}
+
+#personalDetailsPreview h1 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+#preview div h2 {
+    padding-bottom: 10px;
+}
+
+#preview div ul {
+    list-style: none
+}
+
+#preview div li {
+    margin-bottom: 10px;
+}
+
+#preview div li :first-child {
+    font-weight: bold;
+}
+
 footer {
     flex: 0 0 auto;
     height: 50px;

@@ -208,7 +208,7 @@ export default class App extends React.Component {
     ))
     const educationsPreview = this.state.educations.map((ed) => (
       <li key={uniqid()}>
-        <p>{ed.courseName}</p>
+        <p className='courseName' >{ed.courseName}</p>
         <p>{ed.organisationName}</p>
         <p>{ed.description}</p>
         <p>{`${ed.startDate} - ${
@@ -262,16 +262,22 @@ export default class App extends React.Component {
             )
             :(
               <div id='preview'>
-                <p>{this.state.personalDetails.email}</p>
-                <p>{this.state.personalDetails.phoneNumber}</p>
-                <h1>{`${this.state.personalDetails.firstName} ${this.state.personalDetails.surname}`}</h1>
-                <p>{this.state.personalDetails.description}</p>
+                <div id='personalDetailsPreview'>
+                  <p>{this.state.personalDetails.email}</p>
+                  <p>{this.state.personalDetails.phoneNumber}</p>
+                  <h1>{`${this.state.personalDetails.firstName} ${this.state.personalDetails.surname}`}</h1>
+                  <p>{this.state.personalDetails.description}</p>
+                </div>
 
-                <h2>Work Experience</h2>
-                <ul>{workExperiencesPreview}</ul>
+                <div id='workExperiencePreview'>
+                  <h2>Work Experience</h2>
+                  <ul>{workExperiencesPreview}</ul>
+                </div>
 
-                <h2>Education</h2>
-                <ul>{educationsPreview}</ul>
+                <div id='educationPreview'>
+                  <h2>Education</h2>
+                  <ul>{educationsPreview}</ul>
+                </div>
               </div>
             )
           }
