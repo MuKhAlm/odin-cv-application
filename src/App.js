@@ -19,26 +19,8 @@ export default class App extends React.Component {
         phoneNumber: '',
         description: ''
       }),
-      workExperiences: [
-        createWorkExperienceDetails({
-          organisationName: '',
-          jobTitle: '',
-          startDate: '',
-          endDate: '',
-          description: '',
-          key: uniqid(),
-        }),
-      ],
-      educations: [
-        createEducationDetails({
-          organisationName: '',
-          courseName: '',
-          startDate: '',
-          endDate: '',
-          description: '',
-          key: uniqid(),
-        })
-      ]
+      workExperiences: [],
+      educations: []
     }
   }
 
@@ -201,6 +183,16 @@ export default class App extends React.Component {
         key={we.key}
       ></WorkExperience>
     ))
+    const workExperiencesPreview = this.state.workExperiences.map((we) => (
+      <li key={uniqid()}>
+        <p>{we.organisationName}</p>
+        <p>{we.jobTitle}</p>
+        <p>{we.description}</p>
+        <p>{`${we.startDate} - ${
+          we.endDate ? we.endDate : 'present'
+        }`}</p>
+      </li>
+    ))
     const educations = this.state.educations.map((ed) => (
       <Education
         organisationName={ed.organisationName}
@@ -213,6 +205,16 @@ export default class App extends React.Component {
         listid={ed.key}
         key={ed.key}
       ></Education>
+    ))
+    const educationsPreview = this.state.educations.map((ed) => (
+      <li key={uniqid()}>
+        <p>{ed.courseName}</p>
+        <p>{ed.organisationName}</p>
+        <p>{ed.description}</p>
+        <p>{`${ed.startDate} - ${
+          ed.endDate ? ed.endDate : 'present'
+        }`}</p>
+      </li>
     ))
     return (
       <div className="App">
@@ -229,34 +231,49 @@ export default class App extends React.Component {
           }`}</button>
           {
             (this.state.mode === 'production')
-            ? <div id='production'>
-            <div className='productionSection'>
-                <h2>Personal Details</h2>
-                <PersonalDetails 
-                  firstName={this.state.personalDetails.firstName}
-                  surname={this.state.personalDetails.surname}
-                  email={this.state.personalDetails.email}
-                  phoneNumber={this.state.personalDetails.phoneNumber}
-                  description={this.state.personalDetails.description}
-                  onChange = {this.handlePersonalDetailsChange}
-                ></PersonalDetails>
+            ? (
+              <div id='production'>
+                <div className='productionSection'>
+                  <h2>Personal Details</h2>
+                  <PersonalDetails 
+                    firstName={this.state.personalDetails.firstName}
+                    surname={this.state.personalDetails.surname}
+                    email={this.state.personalDetails.email}
+                    phoneNumber={this.state.personalDetails.phoneNumber}
+                    description={this.state.personalDetails.description}
+                    onChange = {this.handlePersonalDetailsChange}
+                  ></PersonalDetails>
+                </div>
+                <div className='productionSection'>
+                  <h2>Work Experience</h2>
+                  <ul>
+                    {workExperiences}
+                  </ul>
+                  <button onClick={this.addWorkExperience}>Add</button>
+                </div>
+                <div className='productionSection'>
+                  <h2>Education</h2>
+                  <ul>
+                    {educations}
+                  </ul>
+                  <button onClick={this.addEducation}>Add</button>
+                </div>
               </div>
-              <div className='productionSection'>
+            )
+            :(
+              <div id='preview'>
+                <p>{this.state.personalDetails.email}</p>
+                <p>{this.state.personalDetails.phoneNumber}</p>
+                <h1>{`${this.state.personalDetails.firstName} ${this.state.personalDetails.surname}`}</h1>
+                <p>{this.state.personalDetails.description}</p>
+
                 <h2>Work Experience</h2>
-                <ul>
-                  {workExperiences}
-                </ul>
-                <button onClick={this.addWorkExperience}>Add</button>
-              </div>
-              <div className='productionSection'>
+                <ul>{workExperiencesPreview}</ul>
+
                 <h2>Education</h2>
-                <ul>
-                  {educations}
-                </ul>
-                <button onClick={this.addEducation}>Add</button>
+                <ul>{educationsPreview}</ul>
               </div>
-            </div>
-            :null
+            )
           }
         </main>
         <footer>
