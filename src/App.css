@@ -40,8 +40,19 @@ header {
 main {
     flex: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     padding: 20px;
+}
+
+main>button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--main-bright-color);
+    color: var(--main-dark-color);
+    border-radius: 1rem;
 }
 
 #production {

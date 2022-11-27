@@ -11,6 +11,7 @@ export default class App extends React.Component {
     super()
 
     this.state = {
+      mode: 'production',
       personalDetails: createPersonalDetails({
         firstName: '',
         surname: '',
@@ -176,6 +177,16 @@ export default class App extends React.Component {
     }))
   }
 
+  onSwitch = () => {
+    this.setState((prevState) => ({
+      mode: (
+          prevState.mode === 'production'
+          ?'preview'
+          :'production'
+        )
+    }))
+  }
+
   render () {
     const workExperiences = this.state.workExperiences.map((we) => (
       <WorkExperience
@@ -211,33 +222,42 @@ export default class App extends React.Component {
           </h1>
         </header>
         <main>
-          <div id='production'>
+          <button onClick={this.onSwitch}>{`Switch to ${
+            (this.state.mode === 'production')
+            ?'preview'
+            :'production'
+          }`}</button>
+          {
+            (this.state.mode === 'production')
+            ? <div id='production'>
             <div className='productionSection'>
-              <h2>Personal Details</h2>
-              <PersonalDetails 
-                firstName={this.state.personalDetails.firstName}
-                surname={this.state.personalDetails.surname}
-                email={this.state.personalDetails.email}
-                phoneNumber={this.state.personalDetails.phoneNumber}
-                description={this.state.personalDetails.description}
-                onChange = {this.handlePersonalDetailsChange}
-              ></PersonalDetails>
+                <h2>Personal Details</h2>
+                <PersonalDetails 
+                  firstName={this.state.personalDetails.firstName}
+                  surname={this.state.personalDetails.surname}
+                  email={this.state.personalDetails.email}
+                  phoneNumber={this.state.personalDetails.phoneNumber}
+                  description={this.state.personalDetails.description}
+                  onChange = {this.handlePersonalDetailsChange}
+                ></PersonalDetails>
+              </div>
+              <div className='productionSection'>
+                <h2>Work Experience</h2>
+                <ul>
+                  {workExperiences}
+                </ul>
+                <button onClick={this.addWorkExperience}>Add</button>
+              </div>
+              <div className='productionSection'>
+                <h2>Education</h2>
+                <ul>
+                  {educations}
+                </ul>
+                <button onClick={this.addEducation}>Add</button>
+              </div>
             </div>
-            <div className='productionSection'>
-              <h2>Work Experience</h2>
-              <ul>
-                {workExperiences}
-              </ul>
-              <button onClick={this.addWorkExperience}>Add</button>
-            </div>
-            <div className='productionSection'>
-              <h2>Education</h2>
-              <ul>
-                {educations}
-              </ul>
-              <button onClick={this.addEducation}>Add</button>
-            </div>
-          </div>
+            :null
+          }
         </main>
         <footer>
           <a href='https://github.com/MuKhAlt/odin-cv-application.git' target={"_blank"} rel="noreferrer" >
